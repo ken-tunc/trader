@@ -5,3 +5,4 @@ spring:
   profiles:
     group:
       local: [ feed, h2 ]
+      test: [ h2 ]
