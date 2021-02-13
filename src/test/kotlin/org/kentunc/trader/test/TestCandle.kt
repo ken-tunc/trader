@@ -8,7 +8,7 @@ import org.kentunc.trader.domain.model.time.DateTime
 import org.kentunc.trader.domain.model.time.Duration
 import java.time.LocalDateTime
 
-object TestCandle {
+internal object TestCandle {
 
     fun create(
         productCode: ProductCode = ProductCode.BTC_JPY,
