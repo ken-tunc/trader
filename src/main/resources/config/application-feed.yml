@@ -1,0 +1,4 @@
+trader:
+  feed:
+    enabled: true
+    product-codes: [ BTC_JPY ]
