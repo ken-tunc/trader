@@ -1,0 +1,2 @@
+# trader
+Cryptocurrency trading bot
