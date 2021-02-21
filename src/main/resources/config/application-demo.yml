@@ -1,0 +1,10 @@
+trader:
+  demo:
+    balances:
+      - currencyCode: JPY
+        amount: 100000
+      - currencyCode: BTC
+        amount: 0
+      - currencyCode: ETH
+        amount: 0
+    commission-rate: 0.0015

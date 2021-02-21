@@ -1,0 +1,11 @@
+external:
+  bitflyer:
+    realtime:
+      endpoint: wss://ws.lightstream.bitflyer.com/json-rpc
+      max-retry-num: 3
+    http:
+      endpoint: https://api.bitflyer.com/v1
+      connection-timeout: 1000
+      read-timeout: 3000
+      access-key: ${BITFLYER_ACCESS_KEY:dummy}
+      secret-key: ${BITFLYER_SECRET_KEY:dummy}

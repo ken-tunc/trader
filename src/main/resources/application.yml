@@ -1,8 +1,13 @@
-external:
-  bitflyer:
-    endpoint: wss://ws.lightstream.bitflyer.com/json-rpc
 spring:
   profiles:
     group:
-      local: [ feed, h2 ]
-      test: [ h2 ]
+      local:
+        - feed
+        - live
+        - demo
+        - h2
+      test:
+        - h2
+    include:
+      - external
+      - strategy

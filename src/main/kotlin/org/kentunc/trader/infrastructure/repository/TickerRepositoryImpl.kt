@@ -5,7 +5,7 @@ import kotlinx.coroutines.flow.map
 import org.kentunc.trader.domain.model.market.ProductCode
 import org.kentunc.trader.domain.model.ticker.Ticker
 import org.kentunc.trader.domain.model.ticker.TickerRepository
-import org.kentunc.trader.infrastructure.repository.webclient.BitflyerRealtimeClient
+import org.kentunc.trader.infrastructure.repository.webclient.realtime.BitflyerRealtimeClient
 import org.springframework.stereotype.Repository
 
 @Repository

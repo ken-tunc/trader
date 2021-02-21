@@ -1,6 +1,8 @@
 package org.kentunc.trader.domain.model.time
 
 import java.time.LocalDateTime
+import java.time.ZoneId
+import java.time.ZonedDateTime
 
 data class TruncatedDateTime(private val localDateTime: LocalDateTime) {
 
@@ -9,4 +11,6 @@ data class TruncatedDateTime(private val localDateTime: LocalDateTime) {
     )
 
     fun toLocalDateTime() = localDateTime
+
+    fun toZonedDateTime(): ZonedDateTime = ZonedDateTime.of(localDateTime, ZoneId.systemDefault())
 }

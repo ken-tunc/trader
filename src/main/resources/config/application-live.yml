@@ -1,0 +1,5 @@
+trader:
+  live:
+    enabled: true
+    trade-duration: MINUTES
+    max-candle-num: 500
