@@ -12,10 +12,8 @@ class CandleFeeder(
 ) {
 
     @EventListener
-    fun publishCreatedCandles(ticker: Ticker) {
-        runBlocking {
-            feedCandleInteractor.feedCandlesByTicker(ticker)
-                .forEach { eventPublisher.publishEvent(it) }
-        }
+    fun publishCreatedCandles(ticker: Ticker) = runBlocking {
+        feedCandleInteractor.feedCandlesByTicker(ticker)
+            .forEach { eventPublisher.publishEvent(it) }
     }
 }

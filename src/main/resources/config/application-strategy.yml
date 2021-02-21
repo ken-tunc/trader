@@ -1,5 +1,7 @@
 trader:
   strategy:
+    loss-cut:
+      stop-limit-percentage: 80
     ema:
       initial-short-time-frame: 7
       initial-long-time-frame: 14

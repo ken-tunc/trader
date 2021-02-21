@@ -13,11 +13,9 @@ class LiveTrader(
 ) {
 
     @EventListener
-    fun trade(candle: Candle) {
-        runBlocking {
-            if (candle.id.duration == tradeDuration) {
-                tradeInteractor.trade(candle.id.productCode, candle.id.duration, maxCandleNum)
-            }
+    fun trade(candle: Candle) = runBlocking {
+        if (candle.id.duration == tradeDuration) {
+            tradeInteractor.trade(candle.id.productCode, candle.id.duration, maxCandleNum)
         }
     }
 }
