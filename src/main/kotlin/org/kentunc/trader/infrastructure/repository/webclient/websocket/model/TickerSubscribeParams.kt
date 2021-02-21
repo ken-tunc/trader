@@ -1,4 +1,4 @@
-package org.kentunc.trader.infrastructure.repository.webclient.realtime.model
+package org.kentunc.trader.infrastructure.repository.webclient.websocket.model
 
 data class TickerSubscribeParams(
     val channel: String,

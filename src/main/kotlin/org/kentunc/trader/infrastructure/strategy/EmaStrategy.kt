@@ -42,7 +42,7 @@ class EmaStrategy(
 
     override fun optimize(candleList: CandleList) {
         val series = candleList.toBarSeries()
-        val bestProfit = PrecisionNum.valueOf(Double.MIN_VALUE)
+        var bestProfit = PrecisionNum.valueOf(Double.MIN_VALUE)
 
         for (currentShortTimeFrame in shortTimeFrameRange) {
             for (currentLongTimeFrame in longTimeFrameRange) {
@@ -58,6 +58,7 @@ class EmaStrategy(
                 if (profit.isGreaterThan(bestProfit)) {
                     this.shortTimeFrame = currentShortTimeFrame
                     this.longTimeFrame = currentLongTimeFrame
+                    bestProfit = profit as PrecisionNum?
                 }
             }
         }

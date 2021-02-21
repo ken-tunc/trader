@@ -11,7 +11,7 @@ import org.junit.jupiter.params.provider.Arguments.arguments
 import org.junit.jupiter.params.provider.ArgumentsProvider
 import org.junit.jupiter.params.provider.ArgumentsSource
 import org.kentunc.trader.domain.model.market.ProductCode
-import org.kentunc.trader.infrastructure.repository.webclient.realtime.BitflyerRealtimeClient
+import org.kentunc.trader.infrastructure.repository.webclient.websocket.BitflyerRealtimeClient
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.test.context.ActiveProfiles

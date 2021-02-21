@@ -1,4 +1,4 @@
-package org.kentunc.trader.infrastructure.repository.webclient.realtime
+package org.kentunc.trader.infrastructure.repository.webclient.websocket
 
 import com.fasterxml.jackson.databind.DeserializationFeature
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
@@ -6,10 +6,10 @@ import com.fasterxml.jackson.module.kotlin.readValue
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.reactive.asFlow
 import org.kentunc.trader.domain.model.market.ProductCode
-import org.kentunc.trader.infrastructure.repository.webclient.realtime.model.JsonRPC2Request
-import org.kentunc.trader.infrastructure.repository.webclient.realtime.model.TickerMessage
-import org.kentunc.trader.infrastructure.repository.webclient.realtime.model.TickerRequestParams
-import org.kentunc.trader.infrastructure.repository.webclient.realtime.model.TickerSubscribeParams
+import org.kentunc.trader.infrastructure.repository.webclient.websocket.model.JsonRPC2Request
+import org.kentunc.trader.infrastructure.repository.webclient.websocket.model.TickerMessage
+import org.kentunc.trader.infrastructure.repository.webclient.websocket.model.TickerRequestParams
+import org.kentunc.trader.infrastructure.repository.webclient.websocket.model.TickerSubscribeParams
 import org.springframework.web.reactive.socket.WebSocketMessage
 import org.springframework.web.reactive.socket.client.ReactorNettyWebSocketClient
 import reactor.core.publisher.Mono

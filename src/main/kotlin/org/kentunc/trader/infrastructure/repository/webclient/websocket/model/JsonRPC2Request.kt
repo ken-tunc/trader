@@ -1,4 +1,4 @@
-package org.kentunc.trader.infrastructure.repository.webclient.realtime.model
+package org.kentunc.trader.infrastructure.repository.webclient.websocket.model
 
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonProperty

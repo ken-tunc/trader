@@ -8,7 +8,7 @@ import org.kentunc.trader.infrastructure.repository.webclient.http.BitflyerHttpP
 import org.kentunc.trader.infrastructure.repository.webclient.http.connector.BitflyerSigner
 import org.kentunc.trader.infrastructure.repository.webclient.http.connector.BodyProvidingJsonEncoder
 import org.kentunc.trader.infrastructure.repository.webclient.http.connector.MessageSigningHttpConnector
-import org.kentunc.trader.infrastructure.repository.webclient.realtime.BitflyerRealtimeClient
+import org.kentunc.trader.infrastructure.repository.webclient.websocket.BitflyerRealtimeClient
 import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
