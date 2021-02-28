@@ -5,6 +5,7 @@ plugins {
     id("io.spring.dependency-management") version "1.0.11.RELEASE"
     id("org.jlleitschuh.gradle.ktlint") version "10.0.0"
     id("org.jlleitschuh.gradle.ktlint-idea") version "10.0.0"
+    id("jacoco")
     kotlin("jvm") version "1.4.21"
     kotlin("plugin.spring") version "1.4.21"
     kotlin("kapt") version "1.4.30"
@@ -68,5 +69,34 @@ tasks {
 
     compileKotlin {
         dependsOn(ktlintFormat)
+    }
+}
+
+// coverage report configuration
+tasks.test {
+    finalizedBy(tasks.jacocoTestReport) // report is always generated after tests run
+}
+tasks.jacocoTestReport {
+    reports {
+        xml.isEnabled = true
+        csv.isEnabled = false
+        html.isEnabled = true
+    }
+}
+
+tasks.withType<JacocoReport> {
+    afterEvaluate {
+        classDirectories.setFrom(
+            files(
+                classDirectories.files.map {
+                    fileTree(it).apply {
+                        exclude(
+                            "**/*Configuration*",
+                            "**/*ConfigurationProperties*"
+                        )
+                    }
+                }
+            )
+        )
     }
 }
