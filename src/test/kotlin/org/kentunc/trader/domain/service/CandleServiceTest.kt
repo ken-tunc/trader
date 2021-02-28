@@ -15,8 +15,8 @@ import org.junit.jupiter.api.function.Executable
 import org.kentunc.trader.domain.model.candle.Candle
 import org.kentunc.trader.domain.model.candle.CandleRepository
 import org.kentunc.trader.domain.model.time.Duration
-import org.kentunc.trader.test.TestCandle
-import org.kentunc.trader.test.TestTicker
+import org.kentunc.trader.test.model.TestCandle
+import org.kentunc.trader.test.model.TestTicker
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig
 

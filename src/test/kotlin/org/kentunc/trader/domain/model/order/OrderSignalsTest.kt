@@ -13,7 +13,7 @@ import org.junit.jupiter.params.provider.Arguments.arguments
 import org.junit.jupiter.params.provider.ArgumentsProvider
 import org.junit.jupiter.params.provider.ArgumentsSource
 import org.kentunc.trader.domain.model.market.ProductCode
-import org.kentunc.trader.test.TestOrder
+import org.kentunc.trader.test.model.TestOrder
 import java.time.LocalDateTime
 import java.util.stream.Stream
 
@@ -76,100 +76,98 @@ internal class OrderSignalsTest {
         )
     }
 
-    companion object {
-        private class OrdersProvider : ArgumentsProvider {
-            override fun provideArguments(context: ExtensionContext?): Stream<out Arguments> {
-                val baseDateTime = LocalDateTime.now()
-                return Stream.of(
-                    // orders, canBuy, canSell
-                    arguments(
-                        listOf<Order>(),
-                        true,
-                        false
+    private class OrdersProvider : ArgumentsProvider {
+        override fun provideArguments(context: ExtensionContext?): Stream<out Arguments> {
+            val baseDateTime = LocalDateTime.now()
+            return Stream.of(
+                // orders, canBuy, canSell
+                arguments(
+                    listOf<Order>(),
+                    true,
+                    false
+                ),
+                arguments(
+                    listOf(
+                        TestOrder.create(
+                            orderSide = OrderSide.BUY,
+                            state = OrderState.ACTIVE,
+                            orderDate = baseDateTime
+                        )
                     ),
-                    arguments(
-                        listOf(
-                            TestOrder.create(
-                                orderSide = OrderSide.BUY,
-                                state = OrderState.ACTIVE,
-                                orderDate = baseDateTime
-                            )
+                    false,
+                    false
+                ),
+                arguments(
+                    listOf(
+                        TestOrder.create(
+                            orderSide = OrderSide.BUY,
+                            state = OrderState.REJECTED,
+                            orderDate = baseDateTime
+                        )
+                    ),
+                    true,
+                    false
+                ),
+                arguments(
+                    listOf(
+                        TestOrder.create(
+                            orderSide = OrderSide.BUY,
+                            state = OrderState.COMPLETED,
+                            orderDate = baseDateTime
+                        )
+                    ),
+                    false,
+                    true
+                ),
+                arguments(
+                    listOf(
+                        TestOrder.create(
+                            orderSide = OrderSide.BUY,
+                            state = OrderState.COMPLETED,
+                            orderDate = baseDateTime
                         ),
-                        false,
-                        false
+                        TestOrder.create(
+                            orderSide = OrderSide.SELL,
+                            state = OrderState.ACTIVE,
+                            orderDate = baseDateTime.plusMinutes(1)
+                        )
                     ),
-                    arguments(
-                        listOf(
-                            TestOrder.create(
-                                orderSide = OrderSide.BUY,
-                                state = OrderState.REJECTED,
-                                orderDate = baseDateTime
-                            )
+                    false,
+                    false
+                ),
+                arguments(
+                    listOf(
+                        TestOrder.create(
+                            orderSide = OrderSide.BUY,
+                            state = OrderState.COMPLETED,
+                            orderDate = baseDateTime
                         ),
-                        true,
-                        false
+                        TestOrder.create(
+                            orderSide = OrderSide.SELL,
+                            state = OrderState.CANCELED,
+                            orderDate = baseDateTime.plusMinutes(1)
+                        )
                     ),
-                    arguments(
-                        listOf(
-                            TestOrder.create(
-                                orderSide = OrderSide.BUY,
-                                state = OrderState.COMPLETED,
-                                orderDate = baseDateTime
-                            )
+                    false,
+                    true
+                ),
+                arguments(
+                    listOf(
+                        TestOrder.create(
+                            orderSide = OrderSide.BUY,
+                            state = OrderState.COMPLETED,
+                            orderDate = baseDateTime
                         ),
-                        false,
-                        true
+                        TestOrder.create(
+                            orderSide = OrderSide.SELL,
+                            state = OrderState.COMPLETED,
+                            orderDate = baseDateTime.plusMinutes(1)
+                        )
                     ),
-                    arguments(
-                        listOf(
-                            TestOrder.create(
-                                orderSide = OrderSide.BUY,
-                                state = OrderState.COMPLETED,
-                                orderDate = baseDateTime
-                            ),
-                            TestOrder.create(
-                                orderSide = OrderSide.SELL,
-                                state = OrderState.ACTIVE,
-                                orderDate = baseDateTime.plusMinutes(1)
-                            )
-                        ),
-                        false,
-                        false
-                    ),
-                    arguments(
-                        listOf(
-                            TestOrder.create(
-                                orderSide = OrderSide.BUY,
-                                state = OrderState.COMPLETED,
-                                orderDate = baseDateTime
-                            ),
-                            TestOrder.create(
-                                orderSide = OrderSide.SELL,
-                                state = OrderState.CANCELED,
-                                orderDate = baseDateTime.plusMinutes(1)
-                            )
-                        ),
-                        false,
-                        true
-                    ),
-                    arguments(
-                        listOf(
-                            TestOrder.create(
-                                orderSide = OrderSide.BUY,
-                                state = OrderState.COMPLETED,
-                                orderDate = baseDateTime
-                            ),
-                            TestOrder.create(
-                                orderSide = OrderSide.SELL,
-                                state = OrderState.COMPLETED,
-                                orderDate = baseDateTime.plusMinutes(1)
-                            )
-                        ),
-                        true,
-                        false
-                    ),
-                )
-            }
+                    true,
+                    false
+                ),
+            )
         }
     }
 }

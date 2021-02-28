@@ -12,10 +12,7 @@ class LossCutInteractor(
 ) {
 
     suspend fun lossCutIfStopLimitExceeded(ticker: Ticker) {
-        val signals = orderService.getSignals(ticker.id.productCode)
-        val priceOfLastBuySignal = signals.lastPriceOfBuy() ?: return
-
-        if (signals.canSell() && lossCutSpecification.shouldSell(ticker.midPrice, priceOfLastBuySignal)) {
+        if (lossCutSpecification.shouldSell(ticker)) {
             orderService.sendSellAllOrder(ticker.id.productCode)
         }
     }

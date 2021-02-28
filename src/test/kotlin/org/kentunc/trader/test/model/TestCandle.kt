@@ -1,4 +1,4 @@
-package org.kentunc.trader.test
+package org.kentunc.trader.test.model
 
 import org.kentunc.trader.domain.model.candle.Candle
 import org.kentunc.trader.domain.model.market.ProductCode

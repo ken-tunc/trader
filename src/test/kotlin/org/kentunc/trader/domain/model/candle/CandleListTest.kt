@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertFalse
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.function.Executable
-import org.kentunc.trader.test.TestCandle
+import org.kentunc.trader.test.model.TestCandle
 import java.time.LocalDateTime
 
 internal class CandleListTest {

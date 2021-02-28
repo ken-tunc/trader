@@ -10,8 +10,8 @@ import org.kentunc.trader.domain.model.quote.Price
 import org.kentunc.trader.domain.model.quote.Volume
 import org.kentunc.trader.domain.model.time.DateTime
 import org.kentunc.trader.domain.model.time.Duration
-import org.kentunc.trader.test.TestCandle
-import org.kentunc.trader.test.TestTicker
+import org.kentunc.trader.test.model.TestCandle
+import org.kentunc.trader.test.model.TestTicker
 import java.time.LocalDateTime
 
 internal class CandleTest {

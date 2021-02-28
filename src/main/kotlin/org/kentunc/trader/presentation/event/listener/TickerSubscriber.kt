@@ -16,7 +16,7 @@ class TickerSubscriber(
 ) {
 
     companion object {
-        private val log = LoggerFactory.getLogger(TickerSubscriber::class.java)
+        private val log = LoggerFactory.getLogger(this::class.java)
     }
 
     @EventListener(ApplicationReadyEvent::class)
