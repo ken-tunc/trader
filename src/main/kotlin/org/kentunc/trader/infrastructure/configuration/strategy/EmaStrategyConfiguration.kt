@@ -16,7 +16,7 @@ class EmaStrategyConfiguration(
 ) {
 
     @Bean
-    fun emaStrategy(): EmaStrategy = EmaStrategy(strategyParamsRepository = emaStrategyParamsRepository())
+    fun emaStrategy(): EmaStrategy = EmaStrategy(emaStrategyParamsRepository())
 
     fun emaStrategyParamsRepository() =
         object : AbstractStrategyParamsRepository<EmaStrategyParams>(EmaStrategyParams::class, strategyParamsDao) {
