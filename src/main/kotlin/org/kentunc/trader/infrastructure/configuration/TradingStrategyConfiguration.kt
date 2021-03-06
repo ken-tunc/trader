@@ -1,7 +1,7 @@
 package org.kentunc.trader.infrastructure.configuration
 
 import org.kentunc.trader.domain.model.trade.TradingStrategy
-import org.kentunc.trader.infrastructure.strategy.EmaStrategy
+import org.kentunc.trader.infrastructure.strategy.ema.EmaStrategy
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 

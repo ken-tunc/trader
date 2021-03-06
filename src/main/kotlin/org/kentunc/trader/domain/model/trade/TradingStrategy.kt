@@ -5,7 +5,7 @@ import org.kentunc.trader.domain.model.order.OrderSide
 
 interface TradingStrategy {
 
-    fun shouldBuyOrSell(candleList: CandleList): OrderSide
+    suspend fun shouldBuyOrSell(candleList: CandleList): OrderSide
 
-    fun optimize(candleList: CandleList)
+    suspend fun optimize(candleList: CandleList)
 }

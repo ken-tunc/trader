@@ -67,7 +67,7 @@ internal class TradeInteractorTest {
         coEvery { orderService.sendBuyAllOrder(productCode) } returns null
         coEvery { orderService.sendSellAllOrder(productCode) } returns null
 
-        every { tradeService.optimize(candleList) } returns Unit
+        coEvery { tradeService.optimize(candleList) } returns Unit
 
         // exercise:
         target.trade(productCode, duration, maxCandleNum)

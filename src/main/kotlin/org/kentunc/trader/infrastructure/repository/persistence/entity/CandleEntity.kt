@@ -25,11 +25,12 @@ data class CandleEntity(
     val volume: BigDecimal
 ) {
 
-    fun getPrimaryKey() = CandlePrimaryKey(
-        productCode = productCode,
-        duration = duration,
-        dateTime = dateTime
-    )
+    val primaryKey
+        get() = CandlePrimaryKey(
+            productCode = productCode,
+            duration = duration,
+            dateTime = dateTime
+        )
 
     fun toCandle() = Candle(
         productCode = productCode,

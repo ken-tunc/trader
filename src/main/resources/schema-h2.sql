@@ -22,3 +22,9 @@ create table if not exists candle
     foreign key (product_code) references product_code (product_code),
     foreign key (duration) references duration (duration)
 );
+
+create table if not exists strategy_params
+(
+    name   varchar(30) primary key,
+    params varchar(255) not null
+);

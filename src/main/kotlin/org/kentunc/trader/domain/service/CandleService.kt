@@ -23,6 +23,7 @@ class CandleService(private val candleRepository: CandleRepository) {
         }
     }
 
+    @Transactional(readOnly = true)
     suspend fun getLatest(productCode: ProductCode, duration: Duration, maxNum: Int?): CandleList {
         return candleRepository.findLatest(productCode, duration, maxNum)
             .toList()

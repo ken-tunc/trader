@@ -5,6 +5,7 @@ import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.every
 import io.mockk.mockk
+import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.runBlocking
 import org.junit.jupiter.api.Assertions.assertAll
 import org.junit.jupiter.api.Assertions.assertEquals
@@ -14,6 +15,7 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.function.Executable
 import org.kentunc.trader.domain.model.candle.Candle
 import org.kentunc.trader.domain.model.candle.CandleRepository
+import org.kentunc.trader.domain.model.market.ProductCode
 import org.kentunc.trader.domain.model.time.Duration
 import org.kentunc.trader.test.model.TestCandle
 import org.kentunc.trader.test.model.TestTicker
@@ -68,5 +70,21 @@ internal class CandleServiceTest {
             Executable { assertEquals(updated, actualCandle) },
             Executable { assertFalse(isCreated) }
         )
+    }
+
+    @Test
+    fun testGetLatest() = runBlocking {
+        // setup:
+        val productCode = ProductCode.BTC_JPY
+        val duration = Duration.DAYS
+        val maxNum = 100
+        val candle = TestCandle.create()
+        coEvery { candleRepository.findLatest(productCode, duration, maxNum) } returns flowOf(candle)
+
+        // exercise:
+        val actual = target.getLatest(productCode, duration, maxNum)
+
+        // verify:
+        assertEquals(candle.id, actual.latestOrNull()!!.id)
     }
 }

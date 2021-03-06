@@ -55,7 +55,7 @@ class CandleDao(private val template: R2dbcEntityTemplate) {
     @Transactional
     suspend fun update(candleEntity: CandleEntity): Void? {
         return template.update<CandleEntity>()
-            .matching(query(candleEntity.getPrimaryKey().toCriteria()))
+            .matching(query(candleEntity.primaryKey.toCriteria()))
             .apply(
                 Update.update("open", candleEntity.open)
                     .set("close", candleEntity.close)
